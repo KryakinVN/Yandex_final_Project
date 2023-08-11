@@ -17,7 +17,7 @@ print (track)
 # Полученияе и сравнение статус кода запроса
 def get_order_track(param):
     response = requests.get(c.URL_SERVICE + c.GET_ORDER_TRACK + str(track))
-    assert response.status_code == param, f"Статус код ожидаемый '{200}', Получен {response.status_code}"
+    assert response.status_code == param, f"Статус код ожидаемый '{param}', Получен {response.status_code}"
 
 
 
