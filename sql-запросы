@@ -1,0 +1,38 @@
+SELECT  c."login",
+COUNT(o."inDelivery") AS "inDelivery"
+FROM "Couriers" AS c
+INNER JOIN "Orders" AS o ON c."id" = o."courierId"
+WHERE "inDelivery" = true
+GROUP BY c."login";
+
+
+Examle:
+ login | inDelivery
+-------+------------
+ vova  |          4
+(1 row)
+
+ SELECT track,
+ CASE
+  WHEN finished = true THEN 2
+  WHEN cancelled = true THEN -1
+  WHEN "inDelivery" = true THEN 1
+  ELSE 0
+ END AS "статус"
+FROM "Orders";
+
+Example:
+ track  | статус
+--------+--------
+ 288250 |      0
+ 670906 |      0
+ 254700 |      0
+ 951897 |      0
+  12090 |      0
+ 884901 |      0
+ 908700 |      0
+ 563934 |      1
+ 563934 |      1
+ 222493 |      2
+ 222493 |      2
+(11 rows)
